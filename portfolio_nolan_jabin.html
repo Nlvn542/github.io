@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nolan Jabin — Développeur Software & Full-Stack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;800&family=Manrope:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F2F5FF;--fg:#0B1026;--mut:#4A5578;--card:#FFFFFF;--line:#0B102626;--c1:#5B3DF5;--c2:#0891B2;--hot:#D6336C;--term:#0B1026;--termfg:#B8F5E4;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#070B1D;--fg:#EAF0FF;--mut:#97A3C7;--card:#101735;--line:#EAF0FF22;--c1:#8F7BFF;--c2:#38E0F5;--hot:#FF6B9A;--term:#030614;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#070B1D;--fg:#EAF0FF;--mut:#97A3C7;--card:#101735;--line:#EAF0FF22;--c1:#8F7BFF;--c2:#38E0F5;--hot:#FF6B9A;--term:#030614;color-scheme:dark}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 1rem/1.65 Manrope,system-ui,sans-serif;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--c2);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:Unbounded,Manrope,sans-serif;line-height:1.1;margin:0}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+nav{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:calc(env(safe-area-inset-top,0px) + 12px) 5vw 12px;background:color-mix(in srgb,var(--bg) 70%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav b{font-family:Unbounded,sans-serif;font-size:.9rem}
+nav div{display:flex;gap:1.1rem;align-items:center;font-size:.85rem}
+nav a{text-decoration:none;color:var(--mut)}nav a:hover{color:var(--fg)}
+button{font:inherit;color:inherit;cursor:pointer}
+.ico{background:none;border:1px solid var(--line);border-radius:50%;width:34px;height:34px}
+#hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:120px 5vw 70px}
+#net{position:absolute;inset:0;width:100%;height:100%}
+#hero>*:not(canvas){position:relative;pointer-events:none}
+#hero .cta,#hero .cta *{pointer-events:auto}
+.who{font:600 1.05rem Unbounded,sans-serif;color:var(--c2);margin-bottom:1rem}
+h1{font-size:clamp(2rem,6.6vw,5.6rem);font-weight:800;max-width:15ch;letter-spacing:-.03em;background:linear-gradient(100deg,var(--fg) 30%,var(--c1) 65%,var(--c2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{max-width:52ch;color:var(--mut);margin:1.6rem 0 2rem;font-size:1.1rem}
+.cta{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn{padding:.8rem 1.4rem;border-radius:99px;border:1px solid var(--line);background:var(--card);text-decoration:none;font-weight:600}
+.btn.p{background:linear-gradient(100deg,var(--c1),var(--c2));color:#fff;border:0}
+section{padding:90px 5vw;max-width:1180px;margin:auto}
+h2{font-size:clamp(1.6rem,3.6vw,2.6rem);margin-bottom:2.2rem;letter-spacing:-.02em}
+.pipe{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.4rem;position:relative}
+.job{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:1.3rem}
+.job summary{list-style:none;cursor:pointer}.job summary::-webkit-details-marker{display:none}
+.st{display:inline-flex;gap:.45rem;align-items:center;font-size:.75rem;color:var(--c2)}
+.st i{width:9px;height:9px;border-radius:50%;background:var(--c2)}
+.st.run i{background:var(--hot);animation:pl 1.2s infinite}.st.run{color:var(--hot)}
+@keyframes pl{50%{opacity:.25;transform:scale(1.6)}}
+.job h3{font-size:1rem;margin:.7rem 0 .3rem}.job small{color:var(--mut)}
+.job ul{padding-left:1.1rem;color:var(--mut);font-size:.92rem;margin:1rem 0 .5rem}
+.job[open]{border-color:var(--c1);box-shadow:0 0 0 1px var(--c1),0 20px 50px -25px var(--c1)}
+.projs{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.4rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:1.5rem;transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .15s;position:relative;overflow:hidden}
+.card::after{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,0%),color-mix(in srgb,var(--c1) 22%,transparent),transparent);pointer-events:none}
+.card h3{font-size:1.1rem;margin-bottom:.4rem}.card p{color:var(--mut);margin:.4rem 0 1rem;font-size:.94rem}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.tags span,.chips span{font-size:.76rem;padding:.25rem .65rem;border-radius:99px;border:1px solid var(--line)}
+#sim{width:100%;aspect-ratio:16/9;border-radius:14px;background:var(--term);display:block;margin-bottom:1rem;touch-action:none}
+.hint{font-size:.74rem;color:var(--mut);margin:-.5rem 0 1rem}
+.tabs{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.6rem}
+.tabs button{border:1px solid var(--line);background:none;border-radius:99px;padding:.5rem 1.1rem}
+.tabs button[aria-pressed=true]{background:var(--fg);color:var(--bg)}
+.chips{display:flex;flex-wrap:wrap;gap:.8rem}
+.chips span{font-size:1.05rem;padding:.7rem 1.3rem;background:var(--card);transition:transform .2s,border-color .2s}
+.chips span:hover{transform:translateY(-4px) rotate(-2deg);border-color:var(--c2)}
+#term{background:var(--term);color:var(--termfg);border-radius:20px;padding:1.2rem;font-size:.88rem;height:340px;overflow:auto;border:1px solid var(--line);box-shadow:0 30px 80px -40px var(--c1)}
+#term div{white-space:pre-wrap;min-height:1.4em}
+#term input{background:none;border:0;color:inherit;font:inherit;width:70%;outline:0}
+.dots{display:flex;gap:6px;margin-bottom:.8rem}.dots i{width:11px;height:11px;border-radius:50%;background:var(--hot);opacity:.8}.dots i:nth-child(2){background:#f5b942}.dots i:nth-child(3){background:#35d49a}
+.tl{border-left:2px solid var(--line);margin-left:.4rem;padding-left:1.8rem;display:grid;gap:1.8rem}
+.tl div{position:relative}.tl div::before{content:"";position:absolute;left:-2.25rem;top:.45rem;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--c1)}
+.tl div.now::before{background:var(--hot);border-color:var(--hot);animation:pl 1.2s infinite}
+.tl b{display:block}.tl span{color:var(--mut);font-size:.92rem}
+#contact{text-align:center}
+#contact h2{margin-inline:auto;max-width:16ch}
+.links{display:flex;justify-content:center;gap:.8rem;flex-wrap:wrap;margin-top:1rem}
+footer{text-align:center;color:var(--mut);padding:30px 5vw calc(env(safe-area-inset-bottom,0px) + 40px);font-size:.85rem}
+@media(max-width:640px){nav div a{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<nav><b>NJ</b><div><a href="#parcours">Parcours</a><a href="#projets">Projets</a><a href="#skills">Compétences</a><a href="#terminal">Terminal</a><a href="#contact">Contact</a><button class="ico" id="theme" aria-label="Changer de thème">◐</button></div></nav>
+
+<header id="hero">
+<canvas id="net" aria-hidden="true"></canvas>
+<div class="who mono">Nolan Jabin</div>
+<h1 id="t">Développeur Software & Full-Stack</h1>
+<p class="sub">Élève en Bachelor Développement Web à l’EEMI. Je sécurise des déploiements, je conçois des API et j’intègre de l’IA dans des applications utiles.</p>
+<div class="cta"><a class="btn p" href="#terminal">Ouvrir le terminal</a><a class="btn" href="#projets">Voir mes projets</a></div>
+</header>
+
+<section id="parcours"><h2>Mon parcours, en pipeline</h2>
+<div class="pipe">
+<details class="job"><summary><span class="st"><i></i>Réussi · Déc. 2022</span><h3>Assistant Chef de Projet IT, Société Générale</h3><small>Service ITEC · Puteaux</small></summary>
+<ul><li>Habilitations, validation des changements avant mise en production, environnements recette et production.</li><li>Réunions agiles quotidiennes et suivi des jalons sur JIRA, avec une équipe de 8 personnes.</li></ul><div class="tags"><span>Scrum</span><span>JIRA</span></div></details>
+<details class="job" open><summary><span class="st"><i></i>Réussi · Mai – Août 2026</span><h3>Ingénieur DevSecOps</h3><small>Paris La Défense</small></summary>
+<ul><li>Livraisons automatisées pour accélérer les équipes de développement.</li><li>Gestion centralisée des secrets et renforcement de la confidentialité sur le Cloud.</li><li>Tableaux de bord et alertes en temps réel.</li><li>Audit de sécurité des serveurs et guide de bonnes pratiques.</li></ul><div class="tags"><span>AWS</span><span>Docker</span><span>GitLab CI</span><span>Linux</span><span>Python</span></div></details>
+<details class="job"><summary><span class="st"><i></i>Réussi · Juin – Août 2026</span><h3>Développeur Data & IA, bénévole</h3><small>Projets clients · Remote</small></summary>
+<ul><li>Briques d’IA : API LLM et nettoyage de données en Python.</li><li>API REST sécurisées pour 3 structures (TPE, association).</li><li>Modélisation PostgreSQL et mise en production sous Docker.</li></ul><div class="tags"><span>Python</span><span>React</span><span>Node.js</span><span>PostgreSQL</span></div></details>
+<details class="job"><summary><span class="st run"><i></i>En cours · 2026</span><h3>Bachelor Développeur Web, EEMI</h3><small>Développement Web & Vibe Coding</small></summary>
+<ul><li>Client/serveur, JavaScript, PHP, Node.js, SQL, Azure.</li><li>Sécurité web, Linux, réseaux, IA et prompting.</li></ul></details>
+</div></section>
+
+<section id="projets"><h2>Projets à manipuler</h2>
+<div class="projs">
+<article class="card"><canvas id="sim" aria-label="Simulation du robot KAB-E"></canvas><p class="hint">Cliquez pour poser un obstacle. Le robot les évite grâce à ses capteurs.</p>
+<h3>KAB-E, robot collecteur de déchets</h3><p>Navigation autonome en Python et évitement d’obstacles en temps réel, détection jusqu’à 30 cm. Capteurs ultrason et infrarouge, moteurs pilotés via un pont en H L298N sur Arduino.</p><div class="tags"><span>Python</span><span>Arduino</span><span>C/C++</span><span>L298N</span></div></article>
+<article class="card"><h3>Plateforme e-commerce sportive</h3><p>Site complet : authentification, catalogue, panier et parcours d’achat. Front responsive sur 3 tailles d’écran et base MySQL normalisée d’une dizaine de tables.</p><div class="tags"><span>HTML5</span><span>CSS3</span><span>MySQL</span><span>Git</span></div>
+<h3 style="margin-top:1.6rem">Analyse de tableaux</h3><p>Application Java en POO, modules réutilisables, algorithmes de tri et de recherche en O(n log n) validés par tests unitaires.</p><div class="tags"><span>Java</span><span>POO</span><span>Tests unitaires</span></div></article>
+</div></section>
+
+<section id="skills"><h2>Compétences</h2>
+<div class="tabs" id="tabs"></div><div class="chips" id="chips"></div></section>
+
+<section id="terminal"><h2>Interrogez mon CV</h2>
+<div id="term" class="mono" onclick="q.focus()"><div class="dots"><i></i><i></i><i></i></div><div id="out"></div><div>nolan@portfolio:~$ <input id="q" autocomplete="off" spellcheck="false" aria-label="Commande"></div></div></section>
+
+<section id="formations"><h2>Formations</h2>
+<div class="tl"><div class="now"><b>Bachelor Développeur Web, EEMI</b><span>2026 – présent · alternance</span></div><div><b>Diplôme d’Ingénieur Informatique (CTI), ESIEE-IT</b><span>2024 – 2026 · alternance</span></div><div><b>Certification Dataiku Core Designer</b><span>2026</span></div><div><b>Baccalauréat général, Mathématiques / Physique-Chimie</b><span>Lycée Montesquieu · 2021 – 2024</span></div></div></section>
+
+<section id="contact"><h2>Construisons quelque chose ensemble</h2><p class="sub" style="margin-inline:auto">Disponible immédiatement en alternance, partout en France.</p>
+<div class="links"><a class="btn p" href="mailto:jabin.nolan@yahoo.com">jabin.nolan@yahoo.com</a><a class="btn" href="tel:+33768188329">07 68 18 83 29</a><a class="btn" href="https://linkedin.com/in/nolan-jabin-a08755332">LinkedIn</a></div></section>
+<footer>Nolan Jabin · Herblay-sur-Seine (95)</footer>
+
+<script>
+const $=s=>document.querySelector(s),cv=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim(),RM=matchMedia("(prefers-reduced-motion:reduce)").matches;
+/* thème */
+$("#theme").onclick=()=>{const d=document.documentElement,dark=d.dataset.theme?d.dataset.theme==="dark":matchMedia("(prefers-color-scheme:dark)").matches;d.dataset.theme=dark?"light":"dark"};
+/* titre : déchiffrement */
+(function(){const el=$("#t"),f=el.textContent,ch="01<>/{}#$%";if(RM)return;let i=0;const id=setInterval(()=>{el.textContent=f.split("").map((c,k)=>c===" "||k<i?c:ch[Math.random()*ch.length|0]).join("");i+=1.4;if(i>f.length+1){el.textContent=f;clearInterval(id)}},35)})();
+/* réseau de particules */
+(function(){const c=$("#net"),x=c.getContext("2d");let w,h,P=[],m={x:-999,y:-999};
+function rs(){const r=c.getBoundingClientRect(),d=devicePixelRatio||1;w=r.width;h=r.height;c.width=w*d;c.height=h*d;x.setTransform(d,0,0,d,0,0);P=Array.from({length:Math.min(90,w/12|0)},()=>({x:Math.random()*w,y:Math.random()*h,vx:Math.random()-.5,vy:Math.random()-.5}))}
+addEventListener("resize",rs);rs();addEventListener("pointermove",e=>{const r=c.getBoundingClientRect();m={x:e.clientX-r.left,y:e.clientY-r.top}});
+function f(){x.clearRect(0,0,w,h);const a=cv("--c1"),b=cv("--c2");P.forEach((p,i)=>{if(!RM){p.x+=p.vx*.4;p.y+=p.vy*.4;const dx=m.x-p.x,dy=m.y-p.y,d=Math.hypot(dx,dy);if(d<160){p.x+=dx*.012;p.y+=dy*.012}if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1}
+x.fillStyle=i%2?a:b;x.beginPath();x.arc(p.x,p.y,2,0,7);x.fill();for(let j=i+1;j<P.length;j++){const q=P[j],d=Math.hypot(p.x-q.x,p.y-q.y);if(d<130){x.strokeStyle=i%2?a:b;x.globalAlpha=1-d/130;x.beginPath();x.moveTo(p.x,p.y);x.lineTo(q.x,q.y);x.stroke();x.globalAlpha=1}}});if(!RM)requestAnimationFrame(f)}f()})();
+/* inclinaison des cartes */
+document.querySelectorAll(".card").forEach(c=>{c.onpointermove=e=>{if(RM||e.pointerType==="touch")return;const r=c.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;c.style.setProperty("--ry",(px-.5)*8+"deg");c.style.setProperty("--rx",(.5-py)*8+"deg");c.style.setProperty("--mx",px*100+"%");c.style.setProperty("--my",py*100+"%")};c.onpointerleave=()=>{c.style.setProperty("--rx","0deg");c.style.setProperty("--ry","0deg")}});
+/* simulateur KAB-E */
+(function(){const c=$("#sim"),x=c.getContext("2d");c.width=640;c.height=360;const W=640,H=360;let O=[[160,110,34],[430,90,40],[300,250,36],[520,270,30]],R={x:60,y:300,a:-.6},T=null;
+c.onclick=e=>{const r=c.getBoundingClientRect();O.push([(e.clientX-r.left)*W/r.width,(e.clientY-r.top)*H/r.height,22+Math.random()*16]);if(O.length>9)O.shift()};
+const hit=(px,py)=>px<0||py<0||px>W||py>H||O.some(o=>Math.hypot(px-o[0],py-o[1])<o[2]);
+function ray(da){for(let d=0;d<=60;d+=5){if(hit(R.x+Math.cos(R.a+da)*d,R.y+Math.sin(R.a+da)*d))return d}return 0}
+function f(t){const L=ray(-.6),M=ray(0),Rr=ray(.6);
+if(M||L||Rr){R.a+=(L&&!Rr)||(M&&!L&&Rr===0&&Math.random()<0)?.07:(Rr&&!L)?-.07:.07}else R.a+=Math.sin(t/900)*.015;
+R.x+=Math.cos(R.a)*1.6;R.y+=Math.sin(R.a)*1.6;if(hit(R.x,R.y)){R.x-=Math.cos(R.a)*8;R.y-=Math.sin(R.a)*8;R.a+=Math.PI/2}
+x.clearRect(0,0,W,H);x.fillStyle=cv("--c1");x.globalAlpha=.35;O.forEach(o=>{x.beginPath();x.arc(o[0],o[1],o[2],0,7);x.fill()});x.globalAlpha=1;
+[-.6,0,.6].forEach(da=>{const d=ray(da);x.strokeStyle=d?cv("--hot"):cv("--c2");x.lineWidth=2;x.beginPath();x.moveTo(R.x,R.y);x.lineTo(R.x+Math.cos(R.a+da)*(d||60),R.y+Math.sin(R.a+da)*(d||60));x.stroke()});
+x.save();x.translate(R.x,R.y);x.rotate(R.a);x.fillStyle="#fff";x.fillRect(-12,-9,24,18);x.fillStyle=cv("--c2");x.fillRect(6,-9,6,18);x.restore();
+x.fillStyle=cv("--termfg");x.font="14px monospace";x.fillText("ultrason : "+(Math.min(ray(0)||30,30))+" cm",14,24);if(!RM)requestAnimationFrame(f)}requestAnimationFrame(f)})();
+/* compétences */
+const S={"Langages & Web":["Java","Python","C","JavaScript","SQL","HTML5","CSS3","React","Node.js","PHP"],"DevSecOps & Cloud":["Docker","GitLab CI","AWS","Azure","Vercel","Linux","Gestion des secrets","Supervision & alerting"],"Données & IA":["MySQL","PostgreSQL","API LLM","Dataiku DSS","Modélisation de données"],"Embarqué & Méthodes":["Arduino","Capteurs ultrason/IR","L298N","Git","GitHub","Agile (Scrum)","JIRA"]};
+(function(){const t=$("#tabs"),c=$("#chips");function show(k){[...t.children].forEach(b=>b.setAttribute("aria-pressed",b.textContent===k));c.innerHTML=S[k].map(s=>"<span>"+s.replace("&","&amp;")+"</span>").join("")}
+Object.keys(S).forEach(k=>{const b=document.createElement("button");b.textContent=k;b.onclick=()=>show(k);t.append(b)});show("Langages & Web")})();
+/* terminal */
+const C={help:"Commandes : whoami, parcours, skills, projets, formations, contact, clear",whoami:"Nolan Jabin — Développeur Software & Full-Stack.\nBachelor Développement Web à l’EEMI. DevSecOps, Data & IA.",parcours:"2026  Ingénieur DevSecOps (AWS, Docker, GitLab CI)\n2026  Développeur Data & IA bénévole (3 structures)\n2022  Assistant Chef de Projet IT, Société Générale",skills:Object.entries(S).map(([k,v])=>k+" : "+v.join(", ")).join("\n"),projets:"KAB-E : robot autonome (Python, Arduino)\nE-commerce sportif : HTML5, CSS3, MySQL\nAnalyse de tableaux : Java, POO",formations:"EEMI — Bachelor Développeur Web (2026 – présent)\nESIEE-IT — Ingénieur Informatique (2024 – 2026)\nDataiku Core Designer (2026)",contact:"jabin.nolan@yahoo.com\n07 68 18 83 29\nlinkedin.com/in/nolan-jabin-a08755332",sudo:"Permission refusée. Bien tenté."};
+const q=$("#q"),out=$("#out");function p(s){const d=document.createElement("div");d.textContent=s;out.append(d)}
+p("Bienvenue. Tapez « help » pour commencer.");
+q.addEventListener("keydown",e=>{if(e.key!=="Enter")return;const v=q.value.trim().toLowerCase();q.value="";p("nolan@portfolio:~$ "+v);if(v==="clear")out.innerHTML="";else if(v)p(C[v]||"Commande inconnue : "+v+". Tapez « help ».");$("#term").scrollTop=1e5});
+</script>
+</body>
+</html>
